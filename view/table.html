@@ -1,0 +1,62 @@
+<div>
+    <input type="text" class="form-control" placeholder="全局搜索" ng-model="quanju">
+    <div>
+        <table class="table table-striped table-bordered table-hover lb-shuju">
+            <thead>
+            <tr>
+                <th><input type="checkbox" ng-model="quanxuan" ng-click="all(quanxuan,data)"> 全选序号</th>
+                <th ng-click="col='label';desc=!desc">ID
+                    <i ng-if="desc" class="glyphicon glyphicon-chevron-down"></i>
+                    <i ng-if="!desc" class="glyphicon glyphicon-chevron-up"></i>
+                </th>
+                <th ng-click="col='name';desc=!desc">姓名</th>
+                <th ng-click="col='type';desc=!desc">类型</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" class="form-control" placeholder="序号搜索" ng-model="xuan"></td>
+                <td><input type="text" class="form-control" placeholder="ID搜索" ng-model="quanju.label"></td>
+                <td><input type="text" class="form-control" placeholder="姓名搜索" ng-model="quanju.name"></td>
+                <td><input type="text" class="form-control" placeholder="类型搜索" ng-model="quanju.type"></td>
+            </tr>
+            <tr ng-repeat="item in vm.data | filter: quanju | orderBy:col:desc ">
+                <td><input type="checkbox" name="selected" ng-model="xuan" ng-checked="quanxuan"
+                           ng-click="chk(item.id,xuan)"><i></i>{{$index+1}}
+
+                <span class="btn btn-primary btn-xs pull-right" title="编辑" ng-if="!item.$editing"
+                      ng-click="item.$editing = true">
+            <i class="glyphicon glyphicon-pencil"></i>
+                 </span>
+                <span class="btn btn-primary btn-xs pull-right" title="保存" ng-if="item.$editing"
+                      ng-click="item.$editing = false">
+             <i class="glyphicon glyphicon-floppy-disk"></i>
+             </span>
+
+
+                </td>
+                <td>
+
+                    <span ng-if="!item.$editing">{{item.label}}</span>
+                    <input type="text" class="form-control" ng-model="item.label" ng-if="item.$editing"/>
+
+
+                </td>
+                <td><span ng-if="!item.$editing">{{item.name}}</span>
+                    <input type="text" class="form-control" ng-model="item.name" ng-if="item.$editing"/></td>
+                <td><span ng-if="!item.$editing">{{item.type}}</span>
+                    <input type="text" class="form-control" ng-model="item.type" ng-if="item.$editing"/></td>
+            </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!--<button type="button" class="btn btn-primary btn-sm">首页</button>-->
+    <!--<button type="button" ng-click="vm.lastPage()" class="btn btn-primary btn-sm">上一页</button>-->
+    <!--<button type="button" ng-click="vm.nextPage()" class="btn btn-primary btn-sm">下一页</button>-->
+    <!--<button type="button" class="btn btn-primary btn-sm">尾页</button>-->
+</div>

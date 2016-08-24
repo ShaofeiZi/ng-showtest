@@ -1,0 +1,26 @@
+@charset "utf-8";
+.lb-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    background-color: #EEEEEE;
+    top: 0;
+}
+
+.lb-left > ul {
+    width: 150px;
+    text-align: center;
+
+}
+
+.bm-right {
+    margin-left: 150px;
+
+    padding-top: 1rem;
+}
+
+.bm-right > .form-horizontal > .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}

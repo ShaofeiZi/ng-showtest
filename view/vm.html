@@ -1,0 +1,31 @@
+<div>
+    <!--<label><input type="radio" ng-model="color" value="red"> Red </label><br/>-->
+    <!--<label><input type="radio" ng-model="color" value="green"> Green</label><br/>-->
+    <!--<label><input type="radio" ng-model="color" value="blue"> Blue </label><br/>-->
+    <!--{{color}}-->
+
+    <!--<br/>-->
+    <!--<div ng-repeat="value in ['red', 'green', 'blue']">-->
+    <!--<label><input type="radio" ng-model="colors" ng-value="value"> {{value}} </label>-->
+    <!--</div>-->
+    <!--{{colors}}-->
+    <!--<br/>-->
+
+
+
+
+    <!--<form name="mineForm">9 -->
+    <!--<div ng-repeat="li in vm.list">-->
+            <!--<label><input type="radio" ng-model="li.gao">{{li.color}}</label>-->
+    <!--</div>-->
+    <!--</form>-->
+
+    <!--<button ng-click="vm.consoleG()"></button>-->
+
+
+    <div ng-repeat="value in ['red', 'green', 'blue']">
+        <label><input type="radio" ng-model="vm.color" ng-value="value">  {{value}} </label>
+    </div>
+    {{vm.color}}
+
+</div>
