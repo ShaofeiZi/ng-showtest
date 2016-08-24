@@ -30,7 +30,7 @@ angular.module('main', ['ui.router', 'oc.lazyLoad'])
             })
             .state('table',
                 {
-                    url: '/table',
+                    url: '/table?page&size',
                     templateUrl: 'view/table.html',
                     controller: 'tableCtrl',
                     controllerAs: 'vm',

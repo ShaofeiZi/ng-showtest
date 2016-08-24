@@ -5,6 +5,9 @@
 angular.module('main')
     .factory('shuju', function ($http, $q, path) {
 
+        //var shuju=$q.defer();
+        //var shujup=shuju.promise();
+
         return {
             query: function () {
                 var deferred = $q.defer();//声明承诺
@@ -18,7 +21,9 @@ angular.module('main')
                     .error(function () {
                         alert("NONONO"); //请求失败
                     });
-                return deferred.promise;   // 返回承诺，这里返回的<strong><span style="color: #ff0000;">不是数据</span></strong>，而是API
+                console.log(deferred.promise);
+                return deferred.promise;
+                // 返回承诺
             }
         };
 
