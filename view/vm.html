@@ -3,29 +3,25 @@
     <!--<label><input type="radio" ng-model="color" value="green"> Green</label><br/>-->
     <!--<label><input type="radio" ng-model="color" value="blue"> Blue </label><br/>-->
     <!--{{color}}-->
+    <!--正常版本-->
 
     <!--<br/>-->
     <!--<div ng-repeat="value in ['red', 'green', 'blue']">-->
     <!--<label><input type="radio" ng-model="colors" ng-value="value"> {{value}} </label>-->
     <!--</div>-->
     <!--{{colors}}-->
+    <!--它的原因就在于color值定义在当前scope中，而ng-repeat创建了一个子scope，它使用原型继承的方式从父级继承下来。
+    对color值的修改，会去修改子级的变量，而父级的同名变量不会被修改。。-->
     <!--<br/>-->
 
-
-
-
-    <!--<form name="mineForm">9 -->
-    <!--<div ng-repeat="li in vm.list">-->
-            <!--<label><input type="radio" ng-model="li.gao">{{li.color}}</label>-->
+    <!--<div ng-repeat="value in ['red', 'green', 'blue']">-->
+        <!--<label><input type="radio" ng-model="fei.color" ng-value="value"> {{value}} </label>-->
     <!--</div>-->
-    <!--</form>-->
-
-    <!--<button ng-click="vm.consoleG()"></button>-->
-
-
-    <div ng-repeat="value in ['red', 'green', 'blue']">
-        <label><input type="radio" ng-model="vm.color" ng-value="value">  {{value}} </label>
-    </div>
-    {{vm.color}}
+    <!--{{fei.color}}-->
+    <!--这里，把color定义成了一个vm对象的属性，这时候，因为只需要对vm的成员进行赋值，
+    而不存在对vm进行赋值的情况，所以赋值会正确的作用于父级scope上。
+    这里的vm只是$scope上的一个对象，叫别的名字也可以，只是因为它的实际作用是ViewModel，
+    所以我习惯于把它命名为vm。-->
+    <input type="text" ng-model="a">{{a}}
 
 </div>

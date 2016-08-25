@@ -3,7 +3,7 @@
  */
 //读数据
 angular.module('main')
-    .factory('shuju', function ($http, $q, path) {
+    .factory('shuju', function ($http, $q, path,$state) {
 
         //var shuju=$q.defer();
         //var shujup=shuju.promise();
@@ -49,4 +49,9 @@ angular.module('main')
         //    });
         //alert(jiashuju);
         //return jiashuju;
+
+
+        //翻页
+
+
     });

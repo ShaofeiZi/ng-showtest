@@ -48,7 +48,7 @@ angular.module('main', ['ui.router', 'oc.lazyLoad'])
                     url: '/vmtest',
                     templateUrl: 'view/vm.html',
                     controller: 'vmtestCtrl',
-                    controllerAs: 'vm',
+                    controllerAs: 'fei',
                     resolve: {
                         loadMyfile: _lazyLoad([
                             'css/vmtest.css',

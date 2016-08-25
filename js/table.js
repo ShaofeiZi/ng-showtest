@@ -3,9 +3,8 @@
  */
 angular.module('main')
     .controller('tableCtrl', function (shuju, $scope, $state) {
-        var wei = 1;
+
         var vm = this;
-        //vm.data=shuju.query().then()
         var promise = shuju.query();
         promise.then(function (data) {  // 成功回调
             //vm.data = data;//不分页
@@ -17,6 +16,7 @@ angular.module('main')
         }, function () {  // 错误回调
             console.log('请求失败');
         });
+        console.log($scope.xuan);
 
 
         //vm.data = shuju.jiashuju;
@@ -69,8 +69,11 @@ angular.module('main')
         //    }
         //]
         //分页
+        //console.log($scope.params.size);
+
         $scope.page = $state.params.page || 1;
         $scope.size = $state.params.size || 10;
+        //console.log($scope.params.size);
 
         vm.nextPage = function () {   //上一页
             if ($scope.page < vm.wei) {
@@ -95,5 +98,53 @@ angular.module('main')
             console.log(vm.wei);
             $state.go($state.current, {page: vm.wei}, {reload: true})
         }
+        //选的ID
+        vm.flag = false;
+        vm.xuanzhong=[];//存选中的数据
+        $scope.all = function (c, d) {
+            console.log(c);
+            if (c === false) {
+                //$scope.xuan = true;
+                //vm.xuanzhong = [""];
+                vm.flag = false;
+                console.log(vm.flag);
+                console.log('不选了？');
+            } else {
+                console.log("bbb");
+                //vm.data = true;
+                vm.flag = true;
+
+
+                for (var i = 0; i < $scope.size; i++) {
+                    vm.xuanzhong[i] = '' + vm.data[i].id + '';
+
+                    console.log(vm.data[i].id + "被选中");
+                }
+                //console(vm.xuanzhong);
+
+            }
+
+
+        }
+        $scope.chk = function (a, b) {
+            console.log($scope.size);
+            if (vm.flag === true) {   //全选过了
+                alert(a);
+                alert(b);
+                console.log(vm.flag);
+                for (var i = 0; i < $scope.size; i++) {
+
+                    console.log(vm.data[i].id + "被选中");
+                }
+            }
+            else {
+                //vm.xuanzhong=
+                console.log("选中了" + a);
+                console.log(b);
+                vm.flag = true;
+            }
+
+        };
+
 
     });
