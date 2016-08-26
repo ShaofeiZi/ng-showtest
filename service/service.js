@@ -4,10 +4,6 @@
 //读数据
 angular.module('main')
     .factory('shuju', function ($http, $q, path,$state) {
-
-        //var shuju=$q.defer();
-        //var shujup=shuju.promise();
-
         return {
             query: function () {
                 var deferred = $q.defer();//声明承诺

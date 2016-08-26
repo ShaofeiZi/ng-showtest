@@ -14,14 +14,14 @@
     对color值的修改，会去修改子级的变量，而父级的同名变量不会被修改。。-->
     <!--<br/>-->
 
-    <!--<div ng-repeat="value in ['red', 'green', 'blue']">-->
-        <!--<label><input type="radio" ng-model="fei.color" ng-value="value"> {{value}} </label>-->
-    <!--</div>-->
-    <!--{{fei.color}}-->
+    <div ng-repeat="value in ['red', 'green', 'blue']">
+        <label><input type="radio" ng-model="fei.color" ng-value="value"> {{value}} </label>
+    </div>
+    {{fei.color}}
     <!--这里，把color定义成了一个vm对象的属性，这时候，因为只需要对vm的成员进行赋值，
     而不存在对vm进行赋值的情况，所以赋值会正确的作用于父级scope上。
     这里的vm只是$scope上的一个对象，叫别的名字也可以，只是因为它的实际作用是ViewModel，
     所以我习惯于把它命名为vm。-->
-    <input type="text" ng-model="a">{{a}}
+    <!--<input type="text" ng-model="a">{{a}}-->
 
 </div>

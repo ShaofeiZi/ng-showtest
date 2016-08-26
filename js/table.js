@@ -16,7 +16,7 @@ angular.module('main')
         }, function () {  // 错误回调
             console.log('请求失败');
         });
-        console.log($scope.xuan);
+        console.log(vm.data);
 
 
         //vm.data = shuju.jiashuju;
@@ -145,6 +145,11 @@ angular.module('main')
             }
 
         };
+
+   
+
+
+
 
 
     });
